@@ -1,0 +1,19 @@
+<div *ngFor="let assignment of assignments"
+    [ngClass]="{'rendu': assignment.rendu, 'nonRendu': !assignment.rendu}"
+>
+
+
+  <p *ngIf="assignment.rendu; else nSoumis">
+    Devoir intitulé {{assignment.nom}}, à rendre le {{assignment.dateDeRendu}},
+    rendu par l'élève: {{assignment.rendu}}.
+  </p>
+  <ng-template #nSoumis>
+    <p style="color: red">
+      le Devoir intitulé {{assignment.nom}} n'a pas été rendu
+    </p>
+
+  </ng-template>
+</div>
+
+
+
